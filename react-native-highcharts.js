@@ -1,13 +1,10 @@
-import React, { Component, PropTypes, } from 'react';
+import React, { Component } from 'react';
 import {
-    AppRegistry,
     StyleSheet,
-    Text,
     View,
-    WebView,
-    Image,
     Dimensions
 } from 'react-native';
+import { WebView } from 'react-native-webview';
 
 const win = Dimensions.get('window');
 class ChartWeb extends Component {
@@ -57,6 +54,8 @@ class ChartWeb extends Component {
                 width:win.width
             }
         }
+
+        this.reRenderWebView = this.reRenderWebView.bind(this);
     }
 
     // used to resize on orientation of display
@@ -87,6 +86,7 @@ class ChartWeb extends Component {
                   scalesPageToFit={true}
                   scrollEnabled={false}
                   automaticallyAdjustContentInsets={true}
+                  originWhitelist={['*']}
                   {...this.props}
               />
           </View>
