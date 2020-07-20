@@ -20,6 +20,11 @@
     "WebView",
     "HighCharts"
   ],
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-webview": "*"
+  },
   "author": "Infinity0106",
   "license": "MIT",
   "bugs": {
