@@ -25,8 +25,9 @@ class ChartWeb extends Component {
                         position:absolute;
                         user-select: none;
                         -webkit-user-select: none;
-                    }
-                    </style>
+                    }`,
+
+            middle:`</style>
                     <head>
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
                         ${this.props.stock ? '<script src="https://code.highcharts.com/stock/highstock.js"></script>'
@@ -71,9 +72,11 @@ class ChartWeb extends Component {
             return (typeof value === 'function') ? value.toString() : value;
         });
 
+        const customCSS = this.props.customCSS !== undefined ? this.props.customCSS : '';
 
-        config = JSON.parse(config)
-        let concatHTML = `${this.state.init}${flattenObject(config)}${this.state.end}`;
+
+        config = JSON.parse(config);
+        let concatHTML = `${this.state.init}${customCSS}${this.state.middle}${flattenObject(config)}${this.state.end}`;
         
         return (
           <View style={this.props.style}>
